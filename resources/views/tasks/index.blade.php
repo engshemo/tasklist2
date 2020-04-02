@@ -58,6 +58,16 @@
                                                 </button>
                                             </form>
                                         </td>
+                                        <td>
+                                            <form action="edit/{{$task->id}}" method="POST">
+                                                @csrf
+                                                {{-- @method('UPDATE') --}}
+                                                <button type="submit" class="btn btn-danger">
+                                                    <i class="fa fa-btn fa-trash"></i>edit
+                                                </button>
+                                            </form>
+
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -66,4 +76,3 @@
                 </div>
         </div>
 @endsection
-           
