@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\DB;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,14 +13,24 @@ use Illuminate\Support\Facades\DB;
 |
 */
 
-Route::get('/','TaskController@index');
+Route::get('/tasks','TaskController@index');
 
-Route::get('task/{id}','TaskController@show');
+Route::post('/tasks/task/{id}','TaskController@show');
+
+Route::post('/tasks/store','TaskController@store');
+//Route::delete('delete/{id}','TaskController@destroy');
+Route::post('/tasks/edit/{id}','TaskController@update');
+Route::resource('/tasks/index', 'TaskController');
+Route::delete('/tasks/index/delete/{id}','TaskController@destroy');
 
 
-Route::post('store','Taskcontroller@store');
-Route::delete('delete/{id}','Taskcontroller@destroy');
-Route::post('edit/{id}','Taskcontroller@edit');
-Route::post('edit/update/{id}','Taskcontroller@update');
 
-// Route::put('task/{id}','Taskcontroller@edit');
+
+
+
+
+// $tasks=['task1','task2','task3'];
+// $tasks = DB::table('webs')->get();
+// return $tasks;
+// return view('welcome',compact('tasks'));
+//});
